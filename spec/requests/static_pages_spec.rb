@@ -40,4 +40,17 @@ describe "StaticPages" do
         expect(page).to have_title("About us")
     end
   end
+
+  describe "Contract" do
+
+   it "should have the content 'Contract'" do
+        visit '/static_pages/contract'
+        expect(page).to have_content('contract')
+   end
+
+    it "should have the right title" do
+        visit '/static_pages/contract'
+        expect(page).to have_title("Contract")
+    end
+  end
 end
