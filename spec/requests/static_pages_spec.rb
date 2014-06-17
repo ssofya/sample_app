@@ -1,63 +1,47 @@
-require 'spec_helper'
+require 'spec_helper' 
 
 describe "StaticPages" do
+
+  include Rails.application.routes.url_helpers
+
+   subject { page }
 
   let(:base_title) { "Ruby on Rails Tutorial Sample App" }  
 
   describe "Home page" do
 
-    it "it should have the content 'Sample App'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Sample App')
-    end
+    before { visit root_path }
 
-    it "should have the right title" do
-        visit '/static_pages/home'
-        expect(page).to have_title("#{base_title}")
-    end
+    it { should have_content('sample site') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
 
-    it "should not have a custom page title" do
-      visit '/static_pages/home'
-      expect(page).not_to have_title('| Home')
-    end
   end
 
   describe "Help page" do
-	
-   it "it should have the content 'Help'" do
-	visit '/static_pages/help'
-	expect(page).to have_content('Help')
-   end
 
-    it "should have the right title" do
-        visit '/static_pages/help'
-        expect(page).to have_title("#{base_title} | Help")
-    end
+    before { visit help_path }
+
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
+	
   end
   
   describe "About page" do
    
-   it "should have the content 'About us'" do 
-	visit '/static_pages/about'
-	expect(page).to have_content('About us')
-   end
+    before { visit about_path }
 
-    it "should have the right title" do
-        visit '/static_pages/about'
-        expect(page).to have_title("#{base_title} | About us")
-    end
+    it { should have_content('About') }
+    it { should have_title(full_title('About us')) }
+
   end
 
   describe "Contract" do
 
-   it "should have the content 'Contract'" do
-        visit '/static_pages/contract'
-        expect(page).to have_content('contract')
-   end
+    before { visit contract_path }
 
-    it "should have the right title" do
-        visit '/static_pages/contract'
-        expect(page).to have_title("#{base_title} | Contract")
-    end
+    it { should have_content('Contract') }
+    it { should have_title(full_title('Contract')) }
+
   end
 end
