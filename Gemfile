@@ -7,16 +7,15 @@ gem 'rails', '4.1.0'
 gem 'bootstrap-sass', '3.1.1.1'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt', '3.1.7'
-gem 'sqlite3', '1.3.9'
-#gem 'pg', '0.17.1'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
+	gem 'sqlite3', '1.3.9'
 	gem 'rspec-rails', '3.0.1'
 	gem 'guard-rspec', '4.2.9'
 	gem 'spork-rails', '4.0.0'
-    gem 'guard-spork', '1.5.1'
-    gem 'childprocess', '0.5.3'
+    	gem 'guard-spork', '1.5.1'
+    	gem 'childprocess', '0.5.3'
 end
 
 group :test do
@@ -48,6 +47,7 @@ group :doc do
 end
 
 group :production do
+  gem 'pg', '0.17.1'
   gem 'rails_12factor', '0.0.2'
 end
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
