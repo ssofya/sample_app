@@ -4,6 +4,7 @@ ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
+gem 'rspec-its', '1.0.1'
 gem 'bootstrap-sass', '3.1.1.1'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt', '3.1.7'
@@ -14,8 +15,8 @@ group :development, :test do
 	gem 'rspec-rails', '3.0.1'
 	gem 'guard-rspec', '4.2.9'
 	gem 'spork-rails', '4.0.0'
-    	gem 'guard-spork', '1.5.1'
-    	gem 'childprocess', '0.5.3'
+    gem 'guard-spork', '1.5.1'
+    gem 'childprocess', '0.5.3'
 end
 
 group :test do
@@ -23,6 +24,8 @@ group :test do
 	gem 'capybara', '2.3.0'
 	gem 'libnotify', '0.8.3'
 	gem 'factory_girl_rails', '4.4.1'
+	gem 'cucumber-rails', '1.4.1', :require => false
+  	gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
 # Use SCSS for stylesheets
